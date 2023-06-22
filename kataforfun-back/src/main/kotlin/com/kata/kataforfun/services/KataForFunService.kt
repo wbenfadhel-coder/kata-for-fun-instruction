@@ -19,5 +19,4 @@ class KataForFunService {
         return if (result.isNotEmpty()) result.toString() else inputNumber.toString()
     }
 
-
 }

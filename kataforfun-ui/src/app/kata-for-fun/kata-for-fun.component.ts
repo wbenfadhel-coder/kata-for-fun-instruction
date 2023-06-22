@@ -1,27 +1,29 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { KataForFunService } from '../kata-for-fun.service';
+import { Result } from '../model/result';
+import { Subscription } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-kata-for-fun',
   templateUrl: './kata-for-fun.component.html'
 })
-export class KataForFunComponent implements OnInit, OnDestroy {
+export class KataForFunComponent {
 
-  constructor(private kataForFunService: KataForFunService) { }
+    convertedValues: string[] = [];
+    convertedValue: string;
+    constructor(private kataForFunService: KataForFunService) { }
 
-  ngOnInit(): void {
-  }
-
-  ngOnDestroy(): void {
-  }
 
   convertNumber(inputNumber: number): void {
-  }
+    this.kataForFunService.convertNumber(inputNumber)
+    .subscribe(
+      (response: Result)=> {
+        this.convertedValue= response.result;
+        this.convertedValues.push(inputNumber+" and the result is "+this.convertedValue);
+      }
+    );  }
 
 }
 
-interface NumberConverted {
-  numberToConvert: number;
-  result: string;
-}
