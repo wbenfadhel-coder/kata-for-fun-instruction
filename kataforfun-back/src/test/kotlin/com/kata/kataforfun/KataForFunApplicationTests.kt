@@ -2,13 +2,11 @@ package com.kata.kataforfun
 
 import com.kata.kataforfun.services.KataForFunService
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.mockito.InjectMocks
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-@Disabled("Disabled until the implementation of the service")
 class KataForFunApplicationTests {
 
     @InjectMocks
